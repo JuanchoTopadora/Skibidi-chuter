@@ -8,11 +8,11 @@ export default class Game extends Phaser.Scene {
         this.load.image('enemy', './public/assets/zombie.png');
         this.load.image('vida', './public/assets/vida.png');
         this.load.image('municion', './public/assets/municion.png');
-        
+        this.load.image("fondo", "./public/assets/FONDO.png")
     }
 
     create() {
-        
+        this.fondo = this.add.image(600, 300, "fondo")
         this.playerLives = 3;
         this.livesText = this.add.text(16, 16, 'Vidas: ' + this.playerLives, { fontSize: '32px', fill: '#fff' });
         this.enemiesDestroyed = 0; // Contador de enemigos eliminados
@@ -117,6 +117,7 @@ export default class Game extends Phaser.Scene {
             this.survivalTimeText.setText('Tiempo de supervivencia: ' + survivalTime.toFixed(2));
         }
     }
+    
 
     enemyCollision(player, enemy) {
         // Obtener el cooldown actual del enemigo
